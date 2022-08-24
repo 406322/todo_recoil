@@ -26,8 +26,9 @@ export const Form = () => {
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
-    formValue.id = uuidv4();
-    setTodoList([...todoList, formValue]);
+    const newTodo = { ...formValue }
+    newTodo.id = uuidv4();
+    setTodoList([...todoList, newTodo]);
     const resetForm = event.target as HTMLFormElement;
     resetForm.reset();
   };
